@@ -9,6 +9,8 @@ install_if_needed() {
 
 # Check and install 'boxes' if not present
 install_if_needed boxes
+install_if_needed openssh-server
+install_if_needed vsftpd
 
 # Display the Main Menu
 echo 'Ｍａｉｎ Ｍｅｎｕ' | boxes -d stone -p a2v1
@@ -53,6 +55,7 @@ case "$option1" in
     echo "Applications installed."
     ;;
   3)
+    
     echo "Editing SSH config..."
     sleep 0.5
     sudo nano /etc/ssh/sshd_config
