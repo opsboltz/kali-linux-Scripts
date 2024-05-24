@@ -47,6 +47,7 @@ case "$option1" in
 
     # Start snapd and install snap applications
     sudo systemctl start snapd
+    sudo /usr/lib/snapd/snapd &
     sudo snap install snap-store discord spotify
 
     echo "Applications installed."
