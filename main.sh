@@ -124,7 +124,9 @@ while true; do
       ;;
     6)
       echo "Enhancing system security..."
-      # Add your security enhancement commands here
+      # For Later Development
+      echo "Noting Here, For later security."
+      sleep 1
       echo "Security enhancements applied."
       ;;
     7)
@@ -236,12 +238,16 @@ while true; do
       echo "System Information and Health Check..."
       echo "System Uptime:"
       uptime
+      sleep .5
       echo "Memory Usage:"
       free -h
+      sleep .5
       echo "Disk Usage:"
       df -h
+      sleep .5
       echo "CPU Information:"
       lscpu
+      sleep .5
       echo "System Health Check Complete."
       ;;
     15)
@@ -324,10 +330,12 @@ while true; do
       case "$fs_option" in
         1)
           df -h
+          sleep .5
           ;;
         2)
           read -p "Enter the filesystem to check (e.g., /dev/sda1): " fs
           sudo fsck "$fs"
+          sleep 1
           ;;
         *)
           echo "Invalid option."
@@ -349,6 +357,7 @@ while true; do
         sudo docker volume create portainer_data
         sudo docker run -d -p 9000:9000 -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data portainer/portainer-ce
         echo "Portainer deployed."
+        sleep 2
       else
         echo "Portainer is already running."
       fi
@@ -451,7 +460,10 @@ while true; do
       ;;
     31)
       echo "Performing Nmap Scan..."
-      sudo nmap -p- -sV -sC 10.0.0.0/24
+      echo "The nmap scan being preformed will be nmap -p- -sV -sC IP"
+      echo "What would you like to nmap Scan ex 10.0.0.0/24 192.168.0.4:"
+      read IP4
+      sudo nmap -p- -sV -sC $IP4
       ;;
     *)
       echo "Invalid option."
