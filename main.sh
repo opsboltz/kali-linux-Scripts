@@ -7,6 +7,11 @@ install_if_needed() {
   fi
 }
 
+if [[ "$(whoami)" != root ]]; then
+  echo "Only user root can run this script."
+  exit 1
+fi
+
 # Check and install essential packages
 install_if_needed boxes
 install_if_needed openssh-server
